@@ -4,18 +4,18 @@
 \alias{plot_tilt}
 \title{Storing plots of RR series in folders for review}
 \usage{
-plot_tilt(.data, time, hr, rr, folder)
+plot_tilt(.data, folder)
 }
 \arguments{
 \item{.data}{dataframe}
+
+\item{folder}{folder for the saved plots}
 
 \item{time}{hr time var}
 
 \item{hr}{heart beat}
 
 \item{rr}{heart beat intervals}
-
-\item{folder}{folder for the saved plots}
 }
 \value{
 data frame

@@ -7,10 +7,6 @@
 prep_data(.data, time, HR, RR)
 }
 \arguments{
-\item{time}{time variable}
-
-\item{HR}{Heart Beat}
-
 \item{RR}{RR series}
 
 \item{data}{data set}
