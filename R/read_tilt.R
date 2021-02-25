@@ -12,18 +12,17 @@
 #' @examples
 #' read_tilt("path/to/folder/of/tilt/files", read_csv or ... others)
 read_tilt <- function(path, file_type) {
-  if (!requireNamespace(c("readr", "dplyr"), quietly = TRUE)) {
-    stop("Packages readr and dplyr are needed to run this function.",
+
+  if (!requireNamespace(c("readr", "dplyr","tibble","purrr"), quietly = TRUE)) {
+    stop("Packages readr, dplyr, tibble, and purr are needed to run this function.",
       call. = FALSE
     )
   }
-
-  files_names <- paste(path, list.files(paste0(path)), sep = "")
+  files_names <- paste(path,list.files(paste0(path)),sep="")
   files_names <- list.files(paste0(path))
 
-  # Creats a table of the file names and their contents
-  df <- tibble(names = files_names) %>%
-    mutate(contents = map(names, ~ file_type(file.path(paste0(path), .))))
+  df <- tibble::tibble(names = files_names) %>%
+     dplyr::mutate(contents = purrr::map(names, ~ file_type(file.path(paste0(path), .))))
 
-  df
+
 }
