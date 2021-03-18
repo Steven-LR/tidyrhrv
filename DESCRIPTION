@@ -23,4 +23,5 @@ Imports:
     tidyr,
     RHRV,
     purrr,
-    magrittr
+    magrittr,
+    pracma

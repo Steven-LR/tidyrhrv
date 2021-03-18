@@ -1,4 +1,3 @@
-
 #' Storing plots of RR series in folders for review
 #'
 #' @param .data dataframe
@@ -12,24 +11,26 @@
 #' @examples
 #' plot_tilt(data frame, time, hr, rr, folder)
 
-plot_tilt <- function(.data, folder){
+plot_tilt <- function(.data, folder,type){
 
-  folder = dir.create(paste0(folder))
 
   nihr <- function(name,folder){
 
+    # creating raw readings
   hrv.data = RHRV::CreateHRVData()
   hrv.data = RHRV::SetVerbose(hrv.data, TRUE )
   hrv.data$Beat <- .data$contents[.data$names==name] %>% data.frame() %>% na.omit()
   hrv.data = RHRV::BuildNIHR(hrv.data)
 
-  png(paste(folder,name,"org.png"))
-  RHRV::PlotNIHR(hrv.data, main = paste0(.data$names[.data$names==name],"Original HRV"), ylim = c(40,180))
+    # Saving image of raw readings
+  png(paste0("./",folder,"/",gsub(".csv","_", x=name),type,".png"))
+  RHRV::PlotNIHR(hrv.data, main = paste0(.data$names[.data$names==name],type), ylim = c(40,180))
   dev.off()
 
+   # creating time analysis for raw and filtered readings
   hrv.data = RHRV::CreateTimeAnalysis(hrv.data, size = 300, interval = 7)
 
-  hrv.data$TimeAnalysis  %>%
+ df = hrv.data$TimeAnalysis  %>%
     base::unlist() %>%
     base::as.data.frame() %>%
     tibble::rownames_to_column() %>%
@@ -40,10 +41,14 @@ plot_tilt <- function(.data, folder){
     ) %>%
     dplyr::mutate(name = data$names[data$names==name]) %>%
     dplyr::select(name,rMSSD,pNN50) %>%
-    dplyr::rename("org_rmssd" = rMSSD, "org_pnn50"= pNN50 )
+    dplyr::rename(`paste0(type," rMSSD")` = rMSSD, `paste0(type," pNN50")` = pNN50 )
+
+
+
   }
 
-  purrr::map2(.data$names,folder,nihr)
+ purrr::map2(.data$names,folder,nihr)
+
 
 }
 

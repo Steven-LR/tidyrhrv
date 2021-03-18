@@ -4,7 +4,7 @@
 \alias{plot_tilt}
 \title{Storing plots of RR series in folders for review}
 \usage{
-plot_tilt(.data, folder)
+plot_tilt(.data, folder, type)
 }
 \arguments{
 \item{.data}{dataframe}

@@ -1,30 +1,23 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # tidyrhrv
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/tidyrhrv)](https://CRAN.R-project.org/package=tidyrhrv)
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tidyrhrv)](https://CRAN.R-project.org/package=tidyrhrv)
 <!-- badges: end -->
 
-The goal of tidyrhrv is to read, iteratively filter, and analyze the time component of multiple HRV data sets at once. 
+The goal of tidyrhrv is to read, iteratively filter, and analyze the
+time component of multiple HRV data sets at once.
 
 ## Installation
 
-You can install the released version of tidyrhrv from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of tidyrhrv from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("tidyrhrv")
@@ -34,7 +27,7 @@ install.packages("tidyrhrv")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example, eval=F}
+``` r
 library(tidyrhrv)
 
 ## creating folder for saving raw and filtered images of niHR 
@@ -67,4 +60,3 @@ data_table_filtered <- data %>%
 
 d_table <- rbind(data_table_raw, data_table_filtered)
 ```
-
