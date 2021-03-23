@@ -48,23 +48,23 @@ data <- read_tilt("path", readr::read_csv) %>%
         prep_data("R-R x", "HR y", "R-R y")
 
 # plot raw data, which will be placed into folder created above
-# a tibble of the outputs will be created
-data_table_raw <- data %>% 
-                  plot_tilt()
+# a tibble of the outputs will be created (ie: rmssd, pnn50)
+original_timeanalysis <- data %>% 
+                  plot_tilt("folder_name","original")
 
-# filter the data all in one step
+# filter the data, plot, and retrieve the filtered rmssd, and pnn50 all in one pipe
 # set up bounds for iterative filtering if the heart beats are "greater than"  or
 # "less than" a certain amount with respect to the smoothing spline of heart beat
-data_table_filtered <- data %>% 
+filtered_timeanalysis <- data %>% 
                       filter_tilt(1.10, 90) %>% 
 
 # Lastly plot the data and  compare changes in the newly written table
 # A new folder is created hosting the raw and filtered plots of each file
-                      plot_tilt()
+                      plot_tilt("folder_name","filtered")
 
 
-# Join the two tables using rbind
+# Join the two tables using rbind()
 
-d_table <- rbind(data_table_raw, data_table_filtered)
+d_table <- rbind(original_timeanalysis, filtered_timeanalysis)
 ```
 
