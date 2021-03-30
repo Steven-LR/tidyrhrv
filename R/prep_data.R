@@ -1,7 +1,10 @@
 #' Prep Data
+#' This function helps to manipulate the data into a data set readable by
+#' other tidyrhrv functions.
 #'
-#'
-#' @param data data set
+#' @param .data data set
+#' @param time heart beat time interval
+#' @param HR Heart beat series
 #' @param RR RR series
 #'
 #' @return nest dataframe

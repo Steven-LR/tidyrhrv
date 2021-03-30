@@ -1,12 +1,12 @@
 Package: tidyrhrv
-Title: Read, Interatively Filter, Multiple ECG Datasets At Once
+Title: Read, Interatively Filter, Multiple ECG Datasets at Once
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+    person(given = "Steven",
+             family = "Lawrence",
+             role = c("aut", "cre"),
+             email = "stevenlawrence.r@gmail.com",
+             comment = c(ORCID = "0000-0002-7595-8323"))
 Description: Essentially, tidyrhrv allows a non-experienced programer 
     to quickly load multiple patients electrocardiographic (ECG) data at 
     once and conduct relevant timeanlysis of heart rate variability (HRV) without manuel edits from a 

@@ -2,7 +2,6 @@
 
 export("%>%")
 export(filter_tilt)
-export(ggtilt)
 export(plot_tilt)
 export(prep_data)
 export(read_tilt)

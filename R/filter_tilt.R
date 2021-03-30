@@ -4,10 +4,12 @@
 #' be iterated through by other functions.
 #'
 #' @param .data tilt data frame
-#' @return nest dataframe
+#' @param g greater than median of spline
+#' @param l less than median of spline
+#' @return date from of rmssd and pnn50
 #' @export
 #' @examples
-#' filter_tilt(data frame of names and contents, greater than, less than)
+#' filter_tilt(prepdata, greater than, less than)
 filter_tilt <- function(.data,g,l){
 
   filt <- function(name){

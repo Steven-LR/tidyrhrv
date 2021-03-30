@@ -1,15 +1,13 @@
 #' Storing plots of RR series in folders for review
 #'
 #' @param .data dataframe
-#' @param time hr time var
-#' @param hr heart beat
-#' @param rr heart beat intervals
 #' @param folder folder for the saved plots
+#' @param type whether data are filtered or original
 #'
 #' @return data frame
 #' @export
 #' @examples
-#' plot_tilt(data frame, time, hr, rr, folder)
+#' plot_tilt(data frame,folder, type)
 
 plot_tilt <- function(.data, folder,type){
 
