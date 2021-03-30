@@ -21,5 +21,5 @@ Read in all tilt data files in a folder at once to
 be iterated through by other functions.
 }
 \examples{
-filter_tilt(prepdata, greater than, less than)
+filter_tilt(prepdata, greaterthan, lessthan)
 }
