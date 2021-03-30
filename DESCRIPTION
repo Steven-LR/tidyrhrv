@@ -1,6 +1,6 @@
 Package: tidyrhrv
 Title: Read, Interatively Filter, Multiple ECG Datasets at Once
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person(given = "Steven",
              family = "Lawrence",
