@@ -8,14 +8,18 @@ filter_tilt(.data, g, l)
 }
 \arguments{
 \item{.data}{tilt data frame}
+
+\item{g}{greater than median of spline}
+
+\item{l}{less than median of spline}
 }
 \value{
-nest dataframe
+date from of rmssd and pnn50
 }
 \description{
 Read in all tilt data files in a folder at once to
 be iterated through by other functions.
 }
 \examples{
-filter_tilt(data frame of names and contents, greater than, less than)
+filter_tilt(prepdata, greater than, less than)
 }

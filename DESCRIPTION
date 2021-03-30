@@ -30,4 +30,5 @@ Imports:
     RHRV,
     purrr,
     magrittr,
-    pracma
+    pracma,
+    tibble

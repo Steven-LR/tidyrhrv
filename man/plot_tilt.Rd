@@ -11,11 +11,7 @@ plot_tilt(.data, folder, type)
 
 \item{folder}{folder for the saved plots}
 
-\item{time}{hr time var}
-
-\item{hr}{heart beat}
-
-\item{rr}{heart beat intervals}
+\item{type}{whether data are filtered or original}
 }
 \value{
 data frame
@@ -24,5 +20,5 @@ data frame
 Storing plots of RR series in folders for review
 }
 \examples{
-plot_tilt(data frame, time, hr, rr, folder)
+plot_tilt(data frame,folder, type)
 }

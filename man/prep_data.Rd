@@ -2,20 +2,28 @@
 % Please edit documentation in R/prep_data.R
 \name{prep_data}
 \alias{prep_data}
-\title{Prep Data}
+\title{Prep Data
+This function helps to manipulate the data into a data set readable by
+other tidyrhrv functions.}
 \usage{
 prep_data(.data, time, HR, RR)
 }
 \arguments{
-\item{RR}{RR series}
+\item{.data}{data set}
 
-\item{data}{data set}
+\item{time}{heart beat time interval}
+
+\item{HR}{Heart beat series}
+
+\item{RR}{RR series}
 }
 \value{
 nest dataframe
 }
 \description{
 Prep Data
+This function helps to manipulate the data into a data set readable by
+other tidyrhrv functions.
 }
 \examples{
 read_tilt(data, time, Heart beat, RR)

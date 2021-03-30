@@ -9,7 +9,7 @@
 #' @return date from of rmssd and pnn50
 #' @export
 #' @examples
-#' filter_tilt(prepdata, greater than, less than)
+#' filter_tilt(prepdata, greaterthan, lessthan)
 filter_tilt <- function(.data,g,l){
 
   filt <- function(name){
