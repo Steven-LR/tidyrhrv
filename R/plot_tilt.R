@@ -1,4 +1,4 @@
-#' Storing plots of RR series in folders for review
+#' Storing plots of RR series in folders for review and produces rmssd and pnn50 output
 #'
 #' @param .data dataframe
 #' @param folder folder for the saved plots
@@ -7,7 +7,7 @@
 #' @return data frame
 #' @export
 #' @examples
-#' plot_tilt(data frame,folder, type)
+#' plot_tilt(data,folder, type)
 
 plot_tilt <- function(.data, folder,type){
 

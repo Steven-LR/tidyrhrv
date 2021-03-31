@@ -1,7 +1,6 @@
-#' Data frame of name and content of files.
+#' Filters data form prep data function iteratively
 #'
-#' Read in all tilt data files in a folder at once to
-#' be iterated through by other functions.
+#' Uses window functions native to the RHRV package and hampel window filter.
 #'
 #' @param .data tilt data frame
 #' @param g greater than median of spline
@@ -9,7 +8,7 @@
 #' @return date from of rmssd and pnn50
 #' @export
 #' @examples
-#' filter_tilt(prepdata, greaterthan, lessthan)
+#' filter_tilt(data, greaterthan, lessthan)
 filter_tilt <- function(.data,g,l){
 
   filt <- function(name){
