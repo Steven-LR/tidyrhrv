@@ -3,27 +3,29 @@
 #' @param .data dataframe
 #' @param folder folder for the saved plots
 #' @param type whether data are filtered or original
-#'
 #' @return data frame
 #' @export
 #' @examples
-#' plot_tilt(data,folder, type)
+#' plot_tilt(.data, folder, type)
 
 plot_tilt <- function(.data, folder,type){
 
 
   nihr <- function(name,folder){
+    # binding global variables
 
+    value <- rowname <- data<- rMSSD <- pNN50<- NULL
     # creating raw readings
   hrv.data = RHRV::CreateHRVData()
   hrv.data = RHRV::SetVerbose(hrv.data, TRUE )
-  hrv.data$Beat <- .data$contents[.data$names==name] %>% data.frame() %>% na.omit()
+  hrv.data$Beat <- .data$contents[.data$names==name] %>% base::data.frame() %>% stats::na.omit()
   hrv.data = RHRV::BuildNIHR(hrv.data)
 
+
     # Saving image of raw readings
-  png(paste0("./",folder,"/",gsub(".csv","_", x=name),type,".png"))
-  RHRV::PlotNIHR(hrv.data, main = paste0(.data$names[.data$names==name],type), ylim = c(40,180))
-  dev.off()
+  grDevices::png(base::paste0("./",folder,"/",gsub(".csv","_", x=name),type,".png"))
+  RHRV::PlotNIHR(hrv.data, main = base::paste0(.data$names[.data$names==name],type), ylim = c(40,180))
+  grDevices::dev.off()
 
    # creating time analysis for raw and filtered readings
   hrv.data = RHRV::CreateTimeAnalysis(hrv.data, size = 300, interval = 7)
