@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_tilt.R
 \name{plot_tilt}
 \alias{plot_tilt}
-\title{Storing plots of RR series in folders for review}
+\title{Storing plots of RR series in folders for review and produces rmssd and pnn50 output}
 \usage{
 plot_tilt(.data, folder, type)
 }
@@ -17,8 +17,8 @@ plot_tilt(.data, folder, type)
 data frame
 }
 \description{
-Storing plots of RR series in folders for review
+Storing plots of RR series in folders for review and produces rmssd and pnn50 output
 }
 \examples{
-plot_tilt(data frame,folder, type)
+plot_tilt(.data, folder, type)
 }

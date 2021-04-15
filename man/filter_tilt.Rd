@@ -2,12 +2,12 @@
 % Please edit documentation in R/filter_tilt.R
 \name{filter_tilt}
 \alias{filter_tilt}
-\title{Data frame of name and content of files.}
+\title{Filters data form prep data function iteratively}
 \usage{
-filter_tilt(.data, g, l)
+filter_tilt(data, g, l)
 }
 \arguments{
-\item{.data}{tilt data frame}
+\item{data}{tilt data frame}
 
 \item{g}{greater than median of spline}
 
@@ -17,9 +17,8 @@ filter_tilt(.data, g, l)
 date from of rmssd and pnn50
 }
 \description{
-Read in all tilt data files in a folder at once to
-be iterated through by other functions.
+Uses window functions native to the RHRV package and hampel window filter.
 }
 \examples{
-filter_tilt(prepdata, greaterthan, lessthan)
+filter_tilt(data, g, l)
 }
