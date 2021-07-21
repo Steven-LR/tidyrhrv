@@ -10,6 +10,11 @@
 
 plot_tilt <- function(.data, folder,type){
 
+  if (!requireNamespace(c("readr", "dplyr","tibble","purrr"), quietly = TRUE)) {
+    stop("Packages readr, dplyr, tibble, and purr are needed to run this function.",
+         call. = FALSE
+    )
+  }
 
   nihr <- function(name,folder){
     # binding global variables

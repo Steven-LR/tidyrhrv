@@ -5,11 +5,17 @@
 #' @param data tilt data frame
 #' @param g greater than median of spline
 #' @param l less than median of spline
+#'
 #' @return date from of rmssd and pnn50
 #' @export
 #' @examples
 #' filter_tilt(data, g, l)
-filter_tilt <- function(data,g,l){
+filter_tilt <- function(data, g, l){
+
+  if (!requireNamespace(c("stats", "dplyr","base","purrr","RHRV"), quietly = TRUE)) {
+    stop("Packages stats, dplyr, base, RHRV, and purr are needed to run this function.",
+         call. = FALSE
+    )}
 
   filt <- function(name){
       niHR <- data <- NULL
@@ -25,7 +31,7 @@ filter_tilt <- function(data,g,l){
 
     while( base::max(hrv.data$Beat$niHR) > g*stats::median(pred) | base::min(hrv.data$Beat$niHR) < l*stats::median(pred) & loop_number < 6){
       hrv.data = RHRV::FilterNIHR(hrv.data, long = 50, last = 10, minbpm = 45, maxbpm = 180)
-      hrv.data$Beat = hrv.data$Beat %>% base::data.frame() %>%
+      hrv.data$Beat = hrv.data$Beat  %>% base::data.frame() %>%
         dplyr::mutate(niHR = pracma::hampel(niHR,5,5)$y)
 
       loop_number = loop_number + 1
