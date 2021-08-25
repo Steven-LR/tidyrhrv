@@ -41,11 +41,11 @@ library(tidyrhrv)
 dir.create("./folder_name")
 
 ## read in the data using any appropriate function
-data <- read_tilt("path", vroom::vroom) %>% 
+data <- read_tilt("path", readr::read_csv) %>% 
         
 # preps data to be used by subsequent functions
 # tell it what is your time var, Heart Beat, and RR series vectors
-        prep_data("R-R x", "HR y", "R-R y")
+        prep_data(,"R-R x", "HR y", "R-R y")
 
 # plot raw data, which will be placed into folder created above
 # a tibble of the outputs will be created (ie: rmssd, pnn50)
