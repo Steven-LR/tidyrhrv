@@ -10,7 +10,7 @@
 #' @return nest dataframe
 #' @export
 #' @examples
-#' read_tilt(data, time, Heart beat, RR)
+#' read_tilt(.data, time, Heart beat, RR)
 prep_data <- function(.data, time, HR, RR){
 
   contents <- . <- Time <- niHR<- NULL

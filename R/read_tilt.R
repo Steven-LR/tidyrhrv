@@ -18,11 +18,14 @@ read_tilt <- function(path, file_type) {
       call. = FALSE
     )
   }
-  files_names <- paste(path,list.files(paste0(path)),sep="")
-  files_names <- list.files(paste0(path))
+
+
+
+  files_names <- base::paste(path,base::list.files(base::paste0(path)),sep="")
+  files_names <- base::list.files(base::paste0(path))
 
   df <- tibble::tibble(names = files_names) %>%
-     dplyr::mutate(contents = purrr::map(names, ~ file_type(file.path(paste0(path), .))))
+     dplyr::mutate(contents = purrr::map(names, ~ file_type(base::file.path(base::paste0(path), .))))
 
 
 }

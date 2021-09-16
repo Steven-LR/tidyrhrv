@@ -19,17 +19,17 @@ plot_tilt <- function(.data, folder,type){
   nihr <- function(name,folder){
     # binding global variables
 
-    value <- rowname <- data<- rMSSD <- pNN50<- NULL
+    value <- rowname <- .data<- rMSSD <- pNN50<- NULL
     # creating raw readings
   hrv.data = RHRV::CreateHRVData()
   hrv.data = RHRV::SetVerbose(hrv.data, TRUE )
-  hrv.data$Beat <- .data$contents[.data$names==name] %>% base::data.frame() %>% stats::na.omit()
+  hrv.data$Beat <- .data$contents[data$names==name] %>% base::data.frame() %>% stats::na.omit()
   hrv.data = RHRV::BuildNIHR(hrv.data)
 
 
     # Saving image of raw readings
   grDevices::png(base::paste0("./",folder,"/",gsub(".csv","_", x=name),type,".png"))
-  RHRV::PlotNIHR(hrv.data, main = base::paste0(.data$names[.data$names==name],type), ylim = c(40,180))
+  RHRV::PlotNIHR(hrv.data, main = base::paste0(data$names[data$names==name],type), ylim = c(40,180))
   grDevices::dev.off()
 
    # creating time analysis for raw and filtered readings
@@ -44,7 +44,7 @@ plot_tilt <- function(.data, folder,type){
       values_from = value,
       names_from = rowname
     ) %>%
-    dplyr::mutate(name = data$names[data$names==name]) %>%
+    dplyr::mutate(name = .data$names[.data$names==name]) %>%
     dplyr::select(name,rMSSD,pNN50) %>%
     dplyr::rename(`paste0(type," rMSSD")` = rMSSD, `paste0(type," pNN50")` = pNN50 )
 
