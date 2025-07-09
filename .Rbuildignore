@@ -12,3 +12,4 @@
 ^.*\.Rcheck$
 ^\.\.Rcheck$
 ^CRAN-SUBMISSION$
+^LICENSE\.md$

@@ -8,15 +8,23 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 3 notes
 
-* This is a resubmission with significant improvements
+* This is a resubmission addressing CRAN feedback from July 9, 2025
 
 ## Notes
 
-The single NOTE is about 'utils' namespace in Imports field not being imported, but it is actually used for `utils::globalVariables()` in R/globals.R to declare global variables for NSE contexts. This is a standard practice in R packages.
+1. **CRAN incoming feasibility**: Shows "New submission" - normal for first-time submissions
+2. **utils namespace**: The 'utils' package is used for `utils::globalVariables()` in R/globals.R to declare global variables for NSE contexts. This is standard practice in R packages.
+3. **HTML validation problems**: Minor HTML rendering warnings in documentation that do not affect package functionality
 
-## Changes in this version
+## Changes made in response to CRAN feedback
+
+* Fixed "misspelled words" by putting technical terms in single quotes: 'electrocardiographic' and 'HRV' in DESCRIPTION
+* Added LICENSE.md to .Rbuildignore to exclude it from package build
+* Verified all functionality remains intact with comprehensive testing
+
+## Previous improvements (from initial submission)
 
 * Fixed all function syntax errors and missing return statements
 * Corrected improper `requireNamespace()` usage with vectors
