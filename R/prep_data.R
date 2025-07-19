@@ -11,7 +11,7 @@
 #' @return A nested data frame with standardized column names (Time, niHR, RR)
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Assuming you have data from read_tilt
 #' prepped_data <- prep_data(raw_data, "Time_col", "HR_col", "RR_col")
 #' }

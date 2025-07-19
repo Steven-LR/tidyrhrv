@@ -10,11 +10,12 @@
 #' @return A list of data frames containing RMSSD and pNN50 values for each dataset
 #' @export
 #' @examples
-#' \dontrun{
-#' # Create output directory
-#' dir.create("./hrv_plots")
+#' \donttest{
+#' # Create output directory in temp location
+#' temp_dir <- file.path(tempdir(), "hrv_plots")
+#' dir.create(temp_dir)
 #' # Generate plots and metrics
-#' results <- plot_tilt(filtered_data, folder = "hrv_plots", type = "filtered")
+#' results <- plot_tilt(filtered_data, folder = basename(temp_dir), type = "filtered")
 #' }
 plot_tilt <- function(.data, folder, type){
   

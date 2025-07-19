@@ -23,7 +23,7 @@ This function helps to manipulate the data into a dataset readable by
 other tidyrhrv functions by standardizing column names.
 }
 \examples{
-\dontrun{
+\donttest{
 # Assuming you have data from read_tilt
 prepped_data <- prep_data(raw_data, "Time_col", "HR_col", "RR_col")
 }

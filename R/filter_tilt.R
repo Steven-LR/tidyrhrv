@@ -12,7 +12,7 @@
 #' @return A data frame with filtered contents
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Assuming you have data from read_tilt and prep_data
 #' filtered_data <- filter_tilt(prepped_data, g = 1.1, l = 0.9)
 #' }

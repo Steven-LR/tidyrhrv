@@ -21,10 +21,11 @@ Creates plots of heart rate variability data and saves them to specified folders
 while calculating time domain metrics (RMSSD and pNN50).
 }
 \examples{
-\dontrun{
-# Create output directory
-dir.create("./hrv_plots")
+\donttest{
+# Create output directory in temp location
+temp_dir <- file.path(tempdir(), "hrv_plots")
+dir.create(temp_dir)
 # Generate plots and metrics
-results <- plot_tilt(filtered_data, folder = "hrv_plots", type = "filtered")
+results <- plot_tilt(filtered_data, folder = basename(temp_dir), type = "filtered")
 }
 }

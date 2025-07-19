@@ -23,7 +23,7 @@ Uses window functions native to the RHRV package and hampel window filter
 to iteratively clean heart rate variability data.
 }
 \examples{
-\dontrun{
+\donttest{
 # Assuming you have data from read_tilt and prep_data
 filtered_data <- filter_tilt(prepped_data, g = 1.1, l = 0.9)
 }

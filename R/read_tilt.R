@@ -10,11 +10,13 @@
 #' @return A nested data frame with 'names' and 'contents' columns
 #' @export
 #' @examples
-#' \dontrun{
-#' # Read CSV files from a directory
-#' data <- read_tilt("path/to/folder/", readr::read_csv)
+#' \donttest{
+#' # Read CSV files from a directory using tempdir()
+#' temp_path <- tempdir()
+#' # Assuming data files exist in temp_path
+#' data <- read_tilt(temp_path, readr::read_csv)
 #' # Read other file types
-#' data <- read_tilt("path/to/folder/", read.table)
+#' data <- read_tilt(temp_path, read.table)
 #' }
 read_tilt <- function(path, file_type) {
   
