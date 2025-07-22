@@ -10,7 +10,7 @@
 * checking for file ‘tidyrhrv/DESCRIPTION’ ... OK
 * this is package ‘tidyrhrv’ version ‘1.1.0’
 * package encoding: UTF-8
-* checking CRAN incoming feasibility ... NOTE
+* checking CRAN incoming feasibility ... [5s/13s] NOTE
 Maintainer: ‘Steven Lawrence <stevenlawrence.r@gmail.com>’
 
 New submission
@@ -41,9 +41,7 @@ New submission
 * checking whether the namespace can be unloaded cleanly ... OK
 * checking loading without being on the library search path ... OK
 * checking use of S3 registration ... OK
-* checking dependencies in R code ... NOTE
-Namespace in Imports field not imported from: ‘utils’
-  All declared Imports should be used.
+* checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
@@ -58,12 +56,16 @@ Namespace in Imports field not imported from: ‘utils’
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking examples ... OK
+* checking examples with --run-donttest ... OK
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ... OK
+  Running ‘testthat.R’
 * checking PDF version of manual ... OK
 * checking HTML version of manual ... NOTE
 Found the following HTML validation problems:
 filter_tilt.html:15:44 (filter_tilt.Rd:5): Error: <main> is not recognized!
 filter_tilt.html:15:44 (filter_tilt.Rd:5): Warning: discarding unexpected <main>
-filter_tilt.html:69:1 (filter_tilt.Rd:29): Warning: discarding unexpected </main>
+filter_tilt.html:95:1 (filter_tilt.Rd:56): Warning: discarding unexpected </main>
 filter_tilt.html:4:1 (filter_tilt.Rd:5): Warning: <link> inserting "type" attribute
 filter_tilt.html:12:1 (filter_tilt.Rd:5): Warning: <script> proprietary attribute "onload"
 filter_tilt.html:12:1 (filter_tilt.Rd:5): Warning: <script> inserting "type" attribute
@@ -72,14 +74,14 @@ filter_tilt.html:36:1 (filter_tilt.Rd:10): Warning: <table> lacks "summary" attr
 filter_tilt.html:37:14 (filter_tilt.Rd:10): Warning: <code> attribute "id" has invalid value ".data"
 pipe.html:15:44 (pipe.Rd:5): Error: <main> is not recognized!
 pipe.html:15:44 (pipe.Rd:5): Warning: discarding unexpected <main>
-pipe.html:32:1 (pipe.Rd:7): Warning: discarding unexpected </main>
+pipe.html:38:1 (pipe.Rd:10): Warning: discarding unexpected </main>
 pipe.html:4:1 (pipe.Rd:5): Warning: <link> inserting "type" attribute
 pipe.html:12:1 (pipe.Rd:5): Warning: <script> proprietary attribute "onload"
 pipe.html:12:1 (pipe.Rd:5): Warning: <script> inserting "type" attribute
 pipe.html:17:1 (pipe.Rd:5): Warning: <table> lacks "summary" attribute
 plot_tilt.html:15:44 (plot_tilt.Rd:5): Error: <main> is not recognized!
 plot_tilt.html:15:44 (plot_tilt.Rd:5): Warning: discarding unexpected <main>
-plot_tilt.html:69:1 (plot_tilt.Rd:29): Warning: discarding unexpected </main>
+plot_tilt.html:93:1 (plot_tilt.Rd:54): Warning: discarding unexpected </main>
 plot_tilt.html:4:1 (plot_tilt.Rd:5): Warning: <link> inserting "type" attribute
 plot_tilt.html:12:1 (plot_tilt.Rd:5): Warning: <script> proprietary attribute "onload"
 plot_tilt.html:12:1 (plot_tilt.Rd:5): Warning: <script> inserting "type" attribute
@@ -88,7 +90,7 @@ plot_tilt.html:36:1 (plot_tilt.Rd:10): Warning: <table> lacks "summary" attribut
 plot_tilt.html:37:14 (plot_tilt.Rd:10): Warning: <code> attribute "id" has invalid value ".data"
 prep_data.html:15:44 (prep_data.Rd:5): Error: <main> is not recognized!
 prep_data.html:15:44 (prep_data.Rd:5): Warning: discarding unexpected <main>
-prep_data.html:71:1 (prep_data.Rd:29): Warning: discarding unexpected </main>
+prep_data.html:91:1 (prep_data.Rd:50): Warning: discarding unexpected </main>
 prep_data.html:4:1 (prep_data.Rd:5): Warning: <link> inserting "type" attribute
 prep_data.html:12:1 (prep_data.Rd:5): Warning: <script> proprietary attribute "onload"
 prep_data.html:12:1 (prep_data.Rd:5): Warning: <script> inserting "type" attribute
@@ -97,7 +99,7 @@ prep_data.html:36:1 (prep_data.Rd:10): Warning: <table> lacks "summary" attribut
 prep_data.html:37:14 (prep_data.Rd:10): Warning: <code> attribute "id" has invalid value ".data"
 read_tilt.html:15:44 (read_tilt.Rd:5): Error: <main> is not recognized!
 read_tilt.html:15:44 (read_tilt.Rd:5): Warning: discarding unexpected <main>
-read_tilt.html:65:1 (read_tilt.Rd:27): Warning: discarding unexpected </main>
+read_tilt.html:89:1 (read_tilt.Rd:52): Warning: discarding unexpected </main>
 read_tilt.html:4:1 (read_tilt.Rd:5): Warning: <link> inserting "type" attribute
 read_tilt.html:12:1 (read_tilt.Rd:5): Warning: <script> proprietary attribute "onload"
 read_tilt.html:12:1 (read_tilt.Rd:5): Warning: <script> inserting "type" attribute
@@ -106,4 +108,4 @@ read_tilt.html:36:1 (read_tilt.Rd:10): Warning: <table> lacks "summary" attribut
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 3 NOTEs
+Status: 2 NOTEs

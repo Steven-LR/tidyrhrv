@@ -19,12 +19,35 @@ Read in all tilt data files in a folder at once to create a nested data frame
 that can be processed by other tidyrhrv functions.
 }
 \examples{
+# Create toy HRV data files in temporary directory
+temp_dir <- tempdir()
+
+# Generate synthetic HRV data for two subjects
+hrv_data1 <- data.frame(
+  Time = seq(0, 60, by = 0.8),  # 60 seconds of data
+  HR = 70 + rnorm(76, 0, 5),   # Heart rate around 70 bpm
+  RR = 60/70 + rnorm(76, 0, 0.1) # RR intervals
+)
+
+hrv_data2 <- data.frame(
+  Time = seq(0, 45, by = 0.7),  # 45 seconds of data  
+  HR = 80 + rnorm(65, 0, 4),   # Heart rate around 80 bpm
+  RR = 60/80 + rnorm(65, 0, 0.08)
+)
+
+# Write toy data files
+write.csv(hrv_data1, file.path(temp_dir, "subject1.csv"), row.names = FALSE)
+write.csv(hrv_data2, file.path(temp_dir, "subject2.csv"), row.names = FALSE)
+
+# Read the data using read_tilt
+tilt_data <- read_tilt(temp_dir, read.csv)
+print(tilt_data)
+
+# Clean up
+unlink(file.path(temp_dir, c("subject1.csv", "subject2.csv")))
+
 \donttest{
-# Read CSV files from a directory using tempdir()
-temp_path <- tempdir()
-# Assuming data files exist in temp_path
-data <- read_tilt(temp_path, readr::read_csv)
-# Read other file types
-data <- read_tilt(temp_path, read.table)
+# For reading other file types (requires additional packages)
+# data <- read_tilt(temp_path, readr::read_csv)
 }
 }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  9 JUL 2025 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 JUL 2025 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -348,8 +348,8 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count302
 \l__pdf_internal_box=\box59
 )
-(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpvvNwHt/Rd2pdf833b
-65fe6a3c/Rd2.aux)
+(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpCIWOw2/Rd2pdf3e63
+1fb08127/Rd2.aux)
 \openout1 = `Rd2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -387,47 +387,47 @@ LaTeX Font Info:    ... okay on input line 8.
 )
 Package hyperref Info: Link coloring ON on input line 8.
 
-(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpvvNwHt/Rd2pdf833b
-65fe6a3c/Rd2.out)
-(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpvvNwHt/Rd2pdf833b
-65fe6a3c/Rd2.out)
+(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpCIWOw2/Rd2pdf3e63
+1fb08127/Rd2.out)
+(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpCIWOw2/Rd2pdf3e63
+1fb08127/Rd2.out)
 \@outlinefile=\write4
 \openout4 = `Rd2.out'.
 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-6.
+7.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 35
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 38
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 35.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+(Font)              scaled to size 10.0pt on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 35
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 38
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpvvNwHt/Rd2pdf833b
-65fe6a3c/Rd2.toc)
+(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpCIWOw2/Rd2pdf3e63
+1fb08127/Rd2.toc)
 \tf@toc=\write5
 \openout5 = `Rd2.toc'.
 
@@ -440,34 +440,38 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 al/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2025
 /texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 70.
+(Font)              scaled to size 9.0pt on input line 73.
 
 
 [2]
 
 [3]
 
-Package hyperref Warning: Glyph not defined in PU encoding,
-(hyperref)                removing `\Rpercent' on input line 190.
-
-
-Package hyperref Warning: Glyph not defined in PU encoding,
-(hyperref)                removing `\Rpercent' on input line 190.
-
-
-(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpvvNwHt/Rd2pdf833b
-65fe6a3c/Rd2.ind
-
 [4]
 
+[5]
+
+Package hyperref Warning: Glyph not defined in PU encoding,
+(hyperref)                removing `\Rpercent' on input line 287.
 
 
-[5
+Package hyperref Warning: Glyph not defined in PU encoding,
+(hyperref)                removing `\Rpercent' on input line 287.
+
+
+(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpCIWOw2/Rd2pdf3e63
+1fb08127/Rd2.ind
+
+[6]
+
+
+
+[7
 
 
 ])
-(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpvvNwHt/Rd2pdf833b
-65fe6a3c/Rd2.aux)
+(/private/var/folders/9q/x_785kn57vz3q_mn9bg8774m0000gn/T/RtmpCIWOw2/Rd2pdf3e63
+1fb08127/Rd2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -476,23 +480,23 @@ Package rerunfilecheck Info: File `Rd2.out' has not changed.
 (rerunfilecheck)             Checksum: D70916E7EA505939CA21409AC7A8FAB7;544.
  ) 
 Here is how much of TeX's memory you used:
- 10671 strings out of 473190
- 161815 string characters out of 5715801
- 560672 words of memory out of 5000000
+ 10674 strings out of 473190
+ 161838 string characters out of 5715801
+ 561672 words of memory out of 5000000
  33705 multiletter control sequences out of 15000+600000
  592704 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,5n,95p,296b,701s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,5n,95p,296b,735s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolat
 a-zi4r.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loca
 l/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/
 2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (5 pages, 89278 bytes).
+Output written on Rd2.pdf (7 pages, 97232 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
+ 155 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

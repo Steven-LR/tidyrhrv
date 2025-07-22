@@ -23,40 +23,72 @@ You can install the released version of tidyrhrv from
 install.packages("tidyrhrv")
 ```
 
-## Example
+## Quick Example with Toy Data
 
-This is a basic example which shows you how to solve a common problem:
+Here's a simple example using synthetic HRV data:
 
 ``` r
 library(tidyrhrv)
 
-## creating folder for saving raw and filtered images of niHR 
-dir.create("./folder_name")
+# Create toy HRV data
+temp_dir <- tempdir()
+time_seq <- seq(0, 30, by = 0.8)
+hrv_data <- data.frame(
+  Time = time_seq,
+  HR = 75 + rnorm(length(time_seq), 0, 5),
+  RR_interval = 60/75 + rnorm(length(time_seq), 0, 0.1)
+)
 
-## read in the data using any appropriate function
-data <- read_tilt("path", readr::read_csv) %>% 
-        
-# preps data to be used by subsequent functions
-# tell it what is your time var, Heart Beat, and RR series vectors
-        prep_data("R-R x", "HR y", "R-R y")
+# Write toy data file
+write.csv(hrv_data, file.path(temp_dir, "subject1.csv"), row.names = FALSE)
 
-# plot raw data, which will be placed into folder created above
-# a tibble of the outputs will be created
-data_table_raw <- data %>% 
-                  plot_tilt()
+# Read the data
+raw_data <- read_tilt(temp_dir, read.csv)
 
-# filter the data all in one step
-# set up bounds for iterative filtering if the heart beats are "greater than"  or
-# "less than" a certain amount with respect to the smoothing spline of heart beat
-data_table_filtered <- data %>% 
-                      filter_tilt(1.10, 90) %>% 
+# Prepare data with standardized column names
+prepped_data <- prep_data(raw_data, "Time", "HR", "RR_interval")
 
-# Lastly plot the data and  compare changes in the newly written table
-# A new folder is created hosting the raw and filtered plots of each file
-                      plot_tilt()
+# Check the result
+print(head(prepped_data$contents[[1]]))
 
+# Clean up
+unlink(file.path(temp_dir, "subject1.csv"))
+```
 
-# Join the two tables using rbind
+## Full Workflow Example
 
-d_table <- rbind(data_table_raw, data_table_filtered)
+This example shows the complete workflow for real HRV analysis:
+
+``` r
+library(tidyrhrv)
+
+# Create folder for saving plots
+dir.create("./hrv_analysis")
+
+# Read in HRV data files from a directory
+# (assumes you have CSV files with Time, HR, and RR columns)
+data <- read_tilt("path/to/your/hrv/files", read.csv) %>% 
+  # Prepare data - specify your actual column names
+  prep_data("Time", "Heart_Rate", "RR_intervals")
+
+# Plot original data and get time domain metrics
+original_metrics <- data %>% 
+  plot_tilt("hrv_analysis", "original")
+
+# Apply iterative filtering and plot filtered data
+# g = upper bound multiplier, l = lower bound multiplier
+filtered_metrics <- data %>% 
+  filter_tilt(g = 1.10, l = 0.90) %>% 
+  plot_tilt("hrv_analysis", "filtered")
+
+# Combine results for comparison
+all_metrics <- c(original_metrics, filtered_metrics)
+```
+
+## Testing
+
+The package includes a comprehensive test suite using `testthat`. Run tests with:
+
+```r
+devtools::test()
 ```

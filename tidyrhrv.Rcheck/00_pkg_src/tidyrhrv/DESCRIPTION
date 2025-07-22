@@ -7,22 +7,25 @@ Authors@R:
            role = c("aut", "cre"),
            email = "stevenlawrence.r@gmail.com",
            comment = c(ORCID = "0000-0002-7595-8323"))
-Description: Allows users to quickly load multiple patients' 'electrocardiographic' 
+Description: Allows users to quickly load multiple patients' electrocardiographic 
     (ECG) data at once and conduct relevant time analysis of heart rate variability 
-    ('HRV') without manual edits from a physician or data cleaning specialist. 
+    (HRV) without manual edits from a physician or data cleaning specialist. 
     The package provides the unique ability to iteratively filter, plot, 
     and store time analysis results in a data frame while writing plots to a 
-    predefined folder. This streamlines the workflow for 'HRV' analysis across 
-    multiple datasets.
+    predefined folder. This streamlines the workflow for HRV analysis across 
+    multiple datasets. Methods are based on Rodríguez-Liñares et al. (2011) 
+    <doi:10.1016/j.cmpb.2010.05.012>. Examples of applications using this 
+    package include Kwon et al. (2022) <doi:10.1007/s10286-022-00865-2> and 
+    Lawrence et al. (2023) <doi:10.1016/j.autneu.2022.103056>.
 License: MIT + file LICENSE
 Suggests: testthat (>= 3.0.0), ggplot2, vroom, readr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Imports: dplyr, tidyr, RHRV, purrr, magrittr, pracma, tibble, utils,
-        stats, grDevices
+Imports: dplyr, tidyr, RHRV, purrr, magrittr, pracma, tibble, stats,
+        grDevices
 Author: Steven Lawrence [aut, cre] (<https://orcid.org/0000-0002-7595-8323>)
 Maintainer: Steven Lawrence <stevenlawrence.r@gmail.com>
 NeedsCompilation: no
-Packaged: 2025-07-09 18:49:47 UTC; stevenlawrence
+Packaged: 2025-07-22 20:53:14 UTC; stevenlawrence

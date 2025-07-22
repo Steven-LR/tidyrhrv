@@ -49,10 +49,38 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> ## Not run: 
-> ##D # Assuming you have data from read_tilt and prep_data
-> ##D filtered_data <- filter_tilt(prepped_data, g = 1.1, l = 0.9)
-> ## End(Not run)
+> ## No test: 
+> # This example requires RHRV and pracma packages which may not be available
+> # Create minimal toy data for demonstration
+> temp_dir <- tempdir()
+> 
+> # Generate realistic HRV data with some outliers
+> set.seed(123)
+> hrv_data <- data.frame(
++   Time = seq(0, 20, by = 0.8),
++   niHR = c(70 + rnorm(20, 0, 3), 120, 72 + rnorm(5, 0, 3)), # Include outlier
++   RR = c(60/70 + rnorm(20, 0, 0.05), 0.5, 60/72 + rnorm(5, 0, 0.05))
++ )
+> 
+> write.csv(hrv_data, file.path(temp_dir, "hrv_test.csv"), row.names = FALSE)
+> 
+> # Read and prepare data
+> raw_data <- read_tilt(temp_dir, read.csv)
+> prepped_data <- prep_data(raw_data, "Time", "niHR", "RR")
+> 
+> # Apply filtering (requires RHRV package)
+> if (requireNamespace("RHRV", quietly = TRUE) && 
++     requireNamespace("pracma", quietly = TRUE)) {
++   filtered_data <- filter_tilt(prepped_data, g = 1.2, l = 0.8)
++   print("Filtering completed")
++ } else {
++   message("RHRV and pracma packages required for filtering")
++ }
+[1] "Filtering completed"
+> 
+> # Clean up
+> unlink(file.path(temp_dir, "hrv_test.csv"))
+> ## End(No test)
 > 
 > 
 > 
@@ -72,12 +100,40 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> ## Not run: 
-> ##D # Create output directory
-> ##D dir.create("./hrv_plots")
-> ##D # Generate plots and metrics
-> ##D results <- plot_tilt(filtered_data, folder = "hrv_plots", type = "filtered")
-> ## End(Not run)
+> ## No test: 
+> # This example requires RHRV package for HRV analysis
+> if (requireNamespace("RHRV", quietly = TRUE)) {
++   temp_dir <- tempdir()
++   
++   # Generate synthetic HRV data
++   hrv_data <- data.frame(
++     Time = seq(0, 25, by = 0.8),
++     niHR = 75 + rnorm(32, 0, 4),
++     RR = 60/75 + rnorm(32, 0, 0.08)
++   )
++   
++   write.csv(hrv_data, file.path(temp_dir, "plot_test.csv"), row.names = FALSE)
++   
++   # Read and prepare data
++   raw_data <- read_tilt(temp_dir, read.csv)
++   prepped_data <- prep_data(raw_data, "Time", "niHR", "RR")
++   
++   # Create plots and calculate metrics  
++   plot_folder <- "test_hrv_plots"
++   results <- plot_tilt(prepped_data, plot_folder, "original")
++   
++   print("Plots created and metrics calculated")
++   
++   # Clean up
++   unlink(file.path(temp_dir, "plot_test.csv"))
++   unlink(plot_folder, recursive = TRUE)
++ } else {
++   message("RHRV package required for this function")
++ }
+Warning in RHRV::CreateTimeAnalysis(hrv.data, size = 300, interval = 7) :
+  There is no window or just one window. Cannot compute the standard deviation! Returning NA in SDANN
+[1] "Plots created and metrics calculated"
+> ## End(No test)
 > 
 > 
 > 
@@ -96,10 +152,32 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> ## Not run: 
-> ##D # Assuming you have data from read_tilt
-> ##D prepped_data <- prep_data(raw_data, "Time_col", "HR_col", "RR_col")
-> ## End(Not run)
+> # Create toy HRV data
+> temp_dir <- tempdir()
+> 
+> # Generate synthetic data with different column names to demonstrate prep_data
+> time_seq <- seq(0, 30, by = 0.8)
+> hrv_data <- data.frame(
++   time_col = time_seq,
++   heart_rate = 75 + rnorm(length(time_seq), 0, 5),
++   rr_interval = 60/75 + rnorm(length(time_seq), 0, 0.1)
++ )
+> 
+> # Write toy data file
+> write.csv(hrv_data, file.path(temp_dir, "test_subject.csv"), row.names = FALSE)
+> 
+> # Read the data using read_tilt
+> raw_data <- read_tilt(temp_dir, read.csv)
+> 
+> # Prepare data with standardized column names
+> prepped_data <- prep_data(raw_data, "time_col", "heart_rate", "rr_interval")
+> 
+> # Check the standardized column names
+> print(names(prepped_data$contents[[1]]))
+[1] "Time" "niHR" "RR"  
+> 
+> # Clean up
+> unlink(file.path(temp_dir, "test_subject.csv"))
 > 
 > 
 > 
@@ -118,12 +196,42 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> ## Not run: 
-> ##D # Read CSV files from a directory
-> ##D data <- read_tilt("path/to/folder/", readr::read_csv)
-> ##D # Read other file types
-> ##D data <- read_tilt("path/to/folder/", read.table)
-> ## End(Not run)
+> # Create toy HRV data files in temporary directory
+> temp_dir <- tempdir()
+> 
+> # Generate synthetic HRV data for two subjects
+> hrv_data1 <- data.frame(
++   Time = seq(0, 60, by = 0.8),  # 60 seconds of data
++   HR = 70 + rnorm(76, 0, 5),   # Heart rate around 70 bpm
++   RR = 60/70 + rnorm(76, 0, 0.1) # RR intervals
++ )
+> 
+> hrv_data2 <- data.frame(
++   Time = seq(0, 45, by = 0.7),  # 45 seconds of data  
++   HR = 80 + rnorm(65, 0, 4),   # Heart rate around 80 bpm
++   RR = 60/80 + rnorm(65, 0, 0.08)
++ )
+> 
+> # Write toy data files
+> write.csv(hrv_data1, file.path(temp_dir, "subject1.csv"), row.names = FALSE)
+> write.csv(hrv_data2, file.path(temp_dir, "subject2.csv"), row.names = FALSE)
+> 
+> # Read the data using read_tilt
+> tilt_data <- read_tilt(temp_dir, read.csv)
+> print(tilt_data)
+# A tibble: 2 × 2
+  names        contents     
+  <chr>        <list>       
+1 subject1.csv <df [76 × 3]>
+2 subject2.csv <df [65 × 3]>
+> 
+> # Clean up
+> unlink(file.path(temp_dir, c("subject1.csv", "subject2.csv")))
+> 
+> ## No test: 
+> # For reading other file types (requires additional packages)
+> # data <- read_tilt(temp_path, readr::read_csv)
+> ## End(No test)
 > 
 > 
 > 
@@ -134,7 +242,7 @@ Type 'q()' to quit R.
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.195 0.011 0.215 0 0 
+Time elapsed:  2.431 0.239 3.378 0 0 
 > grDevices::dev.off()
 null device 
           1 

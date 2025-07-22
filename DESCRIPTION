@@ -36,7 +36,6 @@ Imports:
     magrittr,
     pracma,
     tibble,
-    utils,
     stats,
     grDevices
 Author: Steven Lawrence [aut, cre] (<https://orcid.org/0000-0002-7595-8323>)

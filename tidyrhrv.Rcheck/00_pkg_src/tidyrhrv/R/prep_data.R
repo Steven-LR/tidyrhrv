@@ -11,10 +11,31 @@
 #' @return A nested data frame with standardized column names (Time, niHR, RR)
 #' @export
 #' @examples
-#' \dontrun{
-#' # Assuming you have data from read_tilt
-#' prepped_data <- prep_data(raw_data, "Time_col", "HR_col", "RR_col")
-#' }
+#' # Create toy HRV data
+#' temp_dir <- tempdir()
+#' 
+#' # Generate synthetic data with different column names to demonstrate prep_data
+#' time_seq <- seq(0, 30, by = 0.8)
+#' hrv_data <- data.frame(
+#'   time_col = time_seq,
+#'   heart_rate = 75 + rnorm(length(time_seq), 0, 5),
+#'   rr_interval = 60/75 + rnorm(length(time_seq), 0, 0.1)
+#' )
+#' 
+#' # Write toy data file
+#' write.csv(hrv_data, file.path(temp_dir, "test_subject.csv"), row.names = FALSE)
+#' 
+#' # Read the data using read_tilt
+#' raw_data <- read_tilt(temp_dir, read.csv)
+#' 
+#' # Prepare data with standardized column names
+#' prepped_data <- prep_data(raw_data, "time_col", "heart_rate", "rr_interval")
+#' 
+#' # Check the standardized column names
+#' print(names(prepped_data$contents[[1]]))
+#' 
+#' # Clean up
+#' unlink(file.path(temp_dir, "test_subject.csv"))
 prep_data <- function(.data, time, HR, RR){
   
   # Bind variables for R CMD check

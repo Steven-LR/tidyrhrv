@@ -22,10 +22,34 @@ while calculating time domain metrics (RMSSD and pNN50).
 }
 \examples{
 \donttest{
-# Create output directory in temp location
-temp_dir <- file.path(tempdir(), "hrv_plots")
-dir.create(temp_dir)
-# Generate plots and metrics
-results <- plot_tilt(filtered_data, folder = basename(temp_dir), type = "filtered")
+# This example requires RHRV package for HRV analysis
+if (requireNamespace("RHRV", quietly = TRUE)) {
+  temp_dir <- tempdir()
+  
+  # Generate synthetic HRV data
+  hrv_data <- data.frame(
+    Time = seq(0, 25, by = 0.8),
+    niHR = 75 + rnorm(32, 0, 4),
+    RR = 60/75 + rnorm(32, 0, 0.08)
+  )
+  
+  write.csv(hrv_data, file.path(temp_dir, "plot_test.csv"), row.names = FALSE)
+  
+  # Read and prepare data
+  raw_data <- read_tilt(temp_dir, read.csv)
+  prepped_data <- prep_data(raw_data, "Time", "niHR", "RR")
+  
+  # Create plots and calculate metrics  
+  plot_folder <- "test_hrv_plots"
+  results <- plot_tilt(prepped_data, plot_folder, "original")
+  
+  print("Plots created and metrics calculated")
+  
+  # Clean up
+  unlink(file.path(temp_dir, "plot_test.csv"))
+  unlink(plot_folder, recursive = TRUE)
+} else {
+  message("RHRV package required for this function")
+}
 }
 }
