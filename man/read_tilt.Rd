@@ -47,7 +47,17 @@ print(tilt_data)
 unlink(file.path(temp_dir, c("subject1.csv", "subject2.csv")))
 
 \donttest{
-# For reading other file types (requires additional packages)
-# data <- read_tilt(temp_path, readr::read_csv)
+# Example with readr package (if available)
+if (requireNamespace("readr", quietly = TRUE)) {
+  # Create another toy data file
+  write.csv(hrv_data1, file.path(temp_dir, "subject3.csv"), row.names = FALSE)
+  
+  # Read using readr::read_csv
+  data_readr <- read_tilt(temp_dir, readr::read_csv)
+  print(head(data_readr))
+  
+  # Clean up
+  unlink(file.path(temp_dir, "subject3.csv"))
+}
 }
 }
