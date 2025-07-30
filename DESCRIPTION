@@ -16,7 +16,9 @@ Description: Allows users to quickly load multiple patients' electrocardiographi
     multiple datasets. Methods are based on Rodríguez-Liñares et al. (2011) 
     <doi:10.1016/j.cmpb.2010.05.012>. Examples of applications using this 
     package include Kwon et al. (2022) <doi:10.1007/s10286-022-00865-2> and 
-    Lawrence et al. (2023) <doi:10.1016/j.autneu.2022.103056>.
+    Lawrence et al. (2023) <doi:10.1016/j.autneu.2022.103056>. This package 
+    was developed while working on relevant research with the PAIRED lab at 
+    Mount Sinai led by Jessica Robinson-Papp.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0),
