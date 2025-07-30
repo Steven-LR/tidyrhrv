@@ -18,7 +18,7 @@ Description: Allows users to quickly load multiple patients' electrocardiographi
     package include Kwon et al. (2022) <doi:10.1007/s10286-022-00865-2> and 
     Lawrence et al. (2023) <doi:10.1016/j.autneu.2022.103056>. This package 
     was developed while working on relevant research with the PAIRED lab at 
-    Mount Sinai led by Jessica Robinson-Papp.
+    Mount Sinai led by Jessica Robinson-Papp <https://labs.icahn.mssm.edu/robinson-papp-lab/>.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0),
